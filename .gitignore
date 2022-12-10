@@ -1,0 +1,7 @@
+.vscode
+*.out
+*.txt
+*.sh
+gnlTester
+*.pdf
+main.c
