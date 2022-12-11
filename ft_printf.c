@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:19:31 by tmoumni           #+#    #+#             */
-/*   Updated: 2022/12/11 12:14:01 by tmoumni          ###   ########.fr       */
+/*   Updated: 2022/12/11 12:45:45 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,34 @@ int	ft_printf(const char *str, ...)
 {
 	int		length;
 	va_list	args;
-	int		i;
 
 	length = 0;
-	i = 0;
 	va_start(args, str);
-	while (str[i])
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			if (str[i + 1] == 'd' || str[i + 1] == 'i')
+			str++;
+			if (*str == 'd' || *str == 'i')
 				length += ft_putnbr(va_arg(args, int));
-			else if (str[i + 1] == 's')
+			else if (*str == 's')
 				length += ft_putstr(va_arg(args, char *));
-			else if (str[i + 1] == 'c')
+			else if (*str == 'c')
 				length += ft_putchar(va_arg(args, int));
-			else if (str[i + 1] == 'x')
+			else if (*str == 'x')
 				length += ft_puthexlow(va_arg(args, unsigned int));
-			else if (str[i + 1] == 'X')
+			else if (*str == 'X')
 				length += ft_puthexupp(va_arg(args, unsigned int));
-			else if (str[i + 1] == 'u')
+			else if (*str == 'u')
 				length += ft_putunbr(va_arg(args, unsigned int));
-			else if (str[i + 1] == 'p')
+			else if (*str == 'p')
 				length += ft_putstr("0x") + ft_putptr(va_arg(args, unsigned long));
-			else if (str[i + 1] == '%')
+			else if (*str == '%')
 				length += ft_putchar('%');
-			i++;
 		}
 		else
-			length += ft_putchar(str[i]);
-		i++;
+			length += ft_putchar(*str);
+		str++;
 	}
 	return (va_end(args), length);
 }
