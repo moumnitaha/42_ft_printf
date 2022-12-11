@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:19:31 by tmoumni           #+#    #+#             */
-/*   Updated: 2022/12/11 12:45:45 by tmoumni          ###   ########.fr       */
+/*   Updated: 2022/12/11 13:51:18 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ int	ft_printf(const char *str, ...)
 				length += ft_putstr(va_arg(args, char *));
 			else if (*str == 'c')
 				length += ft_putchar(va_arg(args, int));
-			else if (*str == 'x')
-				length += ft_puthexlow(va_arg(args, unsigned int));
-			else if (*str == 'X')
-				length += ft_puthexupp(va_arg(args, unsigned int));
+			else if (*str == 'x' || *str == 'X')
+				length += ft_puthex(va_arg(args, unsigned int), *str);
 			else if (*str == 'u')
 				length += ft_putunbr(va_arg(args, unsigned int));
 			else if (*str == 'p')

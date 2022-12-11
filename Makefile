@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 09:29:36 by tmoumni           #+#    #+#              #
-#    Updated: 2022/12/11 11:46:10 by tmoumni          ###   ########.fr        #
+#    Updated: 2022/12/11 12:58:22 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ CFLAGS = -Wall -Wextra -Werror
 HEADER = ft_printf.h
 
 SRCS = ft_printf.c utils/ft_putnbr.c utils/ft_putchar.c\
-	utils/ft_putstr.c utils/ft_puthexlow.c\
-	utils/ft_puthexupp.c utils/ft_putunbr.c utils/ft_putptr.c
+	utils/ft_putstr.c utils/ft_puthex.c\
+	utils/ft_putunbr.c utils/ft_putptr.c
 
 OBJS = $(SRCS:%.c=%.o)
 
