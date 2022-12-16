@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 09:29:36 by tmoumni           #+#    #+#              #
-#    Updated: 2022/12/11 12:58:22 by tmoumni          ###   ########.fr        #
+#    Updated: 2022/12/16 16:22:20 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,10 @@ $(NAME): $(OBJS)
 	@echo "Compiled successfully...."
 
 clean:
-	@rm -f $(OBJS) $(B_OBJS)
+	@rm -f $(OBJS)
 
 fclean:
-	@rm -f $(NAME) $(OBJS) $(B_OBJS)
+	@rm -f $(NAME) $(OBJS)
 
 re: fclean all
 

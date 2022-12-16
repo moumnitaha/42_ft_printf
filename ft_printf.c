@@ -6,42 +6,51 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 10:19:31 by tmoumni           #+#    #+#             */
-/*   Updated: 2022/12/11 14:03:16 by tmoumni          ###   ########.fr       */
+/*   Updated: 2022/12/16 17:58:53 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+int	u_p_prcnt(va_list args, char c)
+{
+	int	len;
+
+	len = 0;
+	if (c == 'u')
+		len += ft_putunbr(va_arg(args, unsigned int));
+	else if (c == 'p')
+		len += ft_putstr("0x") + ft_putptr(va_arg(args, unsigned long));
+	else if (c == '%')
+		len += ft_putchar('%');
+	return (len);
+}
+
 int	ft_printf(const char *str, ...)
 {
-	int		length;
+	int		len;
 	va_list	args;
 
-	length = 0;
+	len = 0;
 	va_start(args, str);
 	while (*str)
 	{
 		if (*str == '%')
 		{
-			str++;
-			if (*str == 'd' || *str == 'i')
-				length += ft_putnbr(va_arg(args, int));
+			if (*(++str) == 'd' || *str == 'i')
+				len += ft_putnbr(va_arg(args, int));
 			else if (*str == 's')
-				length += ft_putstr(va_arg(args, char *));
+				len += ft_putstr(va_arg(args, char *));
 			else if (*str == 'c')
-				length += ft_putchar(va_arg(args, int));
+				len += ft_putchar(va_arg(args, int));
 			else if (*str == 'x' || *str == 'X')
-				length += ft_puthex(va_arg(args, unsigned int), *str);
-			else if (*str == 'u')
-				length += ft_putunbr(va_arg(args, unsigned int));
-			else if (*str == 'p')
-				length += ft_putstr("0x") + ft_putptr(va_arg(args, unsigned long));
-			else if (*str == '%')
-				length += ft_putchar('%');
+				len += ft_puthex(va_arg(args, unsigned int), *str);
+			else
+				len += u_p_prcnt(args, *str);
 		}
 		else
-			length += ft_putchar(*str);
+			len += ft_putchar(*str);
 		str++;
 	}
-	return (va_end(args), length);
+	return (va_end(args), len);
 }
