@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 09:51:40 by tmoumni           #+#    #+#             */
-/*   Updated: 2022/12/11 10:29:52 by tmoumni          ###   ########.fr       */
+/*   Updated: 2022/12/17 13:00:28 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	ft_putptr(unsigned long num)
 	length = 0;
 	hex = "0123456789abcdef";
 	if (num < 16)
-	{
-		write(1, &hex[num], 1);
-		length++;
-	}
+		length += ft_putchar(hex[num]);
 	else
 	{
 		length += ft_putptr(num / 16);
