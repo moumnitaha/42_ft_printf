@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 09:29:36 by tmoumni           #+#    #+#              #
-#    Updated: 2022/12/16 16:22:20 by tmoumni          ###   ########.fr        #
+#    Updated: 2022/12/17 12:23:38 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS = ft_printf.c utils/ft_putnbr.c utils/ft_putchar.c\
 OBJS = $(SRCS:%.c=%.o)
 
 all: $(NAME)
-	@echo "libftprintf.a created successfully!"
+	@printf "\033[1m[ libftprintf.a ]\033[0m created successfully!"
 
 %.o : %.c $(HEADER)
 	@$(CC) -c $< $(CFLAGS) -o $@

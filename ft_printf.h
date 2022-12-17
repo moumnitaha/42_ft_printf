@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 15:08:49 by tmoumni           #+#    #+#             */
-/*   Updated: 2022/12/16 18:32:14 by tmoumni          ###   ########.fr       */
+/*   Updated: 2022/12/17 11:43:13 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <string.h>
 # include <stdio.h>
+# include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
 
