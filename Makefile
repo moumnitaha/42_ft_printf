@@ -6,7 +6,7 @@
 #    By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/11 09:29:36 by tmoumni           #+#    #+#              #
-#    Updated: 2022/12/18 10:29:45 by tmoumni          ###   ########.fr        #
+#    Updated: 2022/12/18 12:51:33 by tmoumni          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ OBJS = $(SRCS:%.c=%.o)
 GREEN=\033[1;32m
 RED=\033[1;31m
 CYAN=\033[1;36m
+BOLD=\033[1m
 END=\033[0m
 
 all: $(NAME)
@@ -34,7 +35,7 @@ all: $(NAME)
 
 %.o : %.c $(HEADER)
 	@$(CC) -c $< $(CFLAGS) -o $@
-	@echo "$(CYAN)Compiling:$(END)" $< "..."
+	@echo "$(CYAN)Compiling:$(END) [$(BOLD) $< $(END)]"
 
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
