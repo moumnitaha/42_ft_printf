@@ -6,7 +6,7 @@
 /*   By: tmoumni <tmoumni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 09:50:43 by tmoumni           #+#    #+#             */
-/*   Updated: 2022/12/17 12:14:43 by tmoumni          ###   ########.fr       */
+/*   Updated: 2022/12/25 18:14:40 by tmoumni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ int	ft_putunbr(unsigned int num)
 	int	length;
 
 	length = 0;
-	if (num < 0)
-	{
-		num *= -1;
-		length += ft_putchar('-');
-	}
 	if (num < 10)
 		length += ft_putchar(num + '0');
 	else
